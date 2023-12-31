@@ -14,22 +14,29 @@ import java.io.InputStream;
 public class GamePanel extends JPanel {
     private MouseInputs mouseInputs;
     private float xDelta = 100, yDelta = 100;
-    private BufferedImage img, subImg;
+    private BufferedImage img;
 
-
+    private BufferedImage[] idleAni;
 
 
 
     public GamePanel() {
 
         importImg();
-
+        loadAnimations();
         mouseInputs = new MouseInputs(this);
         setPanelSize();
         addKeyListener(new KeyboardInputs(this));
         addMouseListener(mouseInputs);
         addMouseMotionListener(mouseInputs);
 
+    }
+
+    private void loadAnimations() {
+        idleAni = new BufferedImage[10];
+        for(int i = 0; i < idleAni.length; i++){
+            idleAni[i] = img.getSubimage(i*135, 0, 135, 90);
+        }
     }
 
     private void importImg() {
@@ -73,8 +80,9 @@ public class GamePanel extends JPanel {
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        subImg = img.getSubimage(54, 48, 26, 38);
-        g.drawImage(subImg, (int)xDelta, (int)yDelta, 78, 116, null);
+
+
+        g.drawImage(idleAni[4], (int)xDelta, (int)yDelta, 675, 300, null);
 
 
 
