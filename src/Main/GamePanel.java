@@ -96,6 +96,18 @@ public class GamePanel extends JPanel {
         this.moving = moving;
     }
 
+    public int getDirection() {
+        return this.playerDir;
+    }
+
+    public boolean getMoving() {
+        return this.moving;
+    }
+
+    public int getPlayerAction() {
+        return this.playerAction;
+    }
+
     private void updateAnimationTick() {
 
         aniTick++;
@@ -108,7 +120,7 @@ public class GamePanel extends JPanel {
     }
 
     private void setAnimation() {
-        if(moving)
+        if (moving)
             playerAction = RUNNING;
         else
             playerAction = IDLE;
