@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static utilz.Constants.Directions.*;
-import static utilz.Constants.playerConstants.RUNNING;
+
 
 class GamePanelTest {
 
@@ -51,4 +51,34 @@ class GamePanelTest {
         gamePanel.setAnimation();
         assertEquals(0, gamePanel.getPlayerAction());
     }
+
+    @Test
+    void updatePosition_LEFT() {
+        gamePanel.setMoving(true);
+        gamePanel.setDirection(LEFT);
+        gamePanel.updatePosition();
+        assertEquals(95, gamePanel.getxDelta());
+    }
+    @Test
+    void updatePosition_UP() {
+        gamePanel.setMoving(true);
+        gamePanel.setDirection(UP);
+        gamePanel.updatePosition();
+        assertEquals(95, gamePanel.getyDelta());
+    }
+    @Test
+    void updatePosition_RIGHT() {
+        gamePanel.setMoving(true);
+        gamePanel.setDirection(RIGHT);
+        gamePanel.updatePosition();
+        assertEquals(105, gamePanel.getxDelta());
+    }
+    @Test
+    void updatePosition_DOWN() {
+        gamePanel.setMoving(true);
+        gamePanel.setDirection(DOWN);
+        gamePanel.updatePosition();
+        assertEquals(105, gamePanel.getyDelta());
+    }
+
 }

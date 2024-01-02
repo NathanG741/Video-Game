@@ -43,7 +43,7 @@ public class GamePanel extends JPanel {
 
         for (int j = 0; j < animations.length; j++) {
             for (int i = 0; i < animations[j].length; i++) {
-                animations[j][i] = img.getSubimage(i * 135, j*135, 135, 135);
+                animations[j][i] = img.getSubimage(i * 135, j * 135, 135, 135);
             }
         }
     }
@@ -127,7 +127,7 @@ public class GamePanel extends JPanel {
 
     }
 
-    private void updatePosition(){
+    public void updatePosition(){
         if(moving)
             switch(playerDir) {
                 case LEFT:
@@ -144,6 +144,14 @@ public class GamePanel extends JPanel {
                     break;
 
             }
+    }
+
+    public float getxDelta() {
+        return this.xDelta;
+    }
+
+    public float getyDelta() {
+        return this.yDelta;
     }
 
     public void paintComponent(Graphics g) {
