@@ -119,7 +119,7 @@ public class GamePanel extends JPanel {
         }
     }
 
-    private void setAnimation() {
+    public void setAnimation() {
         if (moving)
             playerAction = RUNNING;
         else

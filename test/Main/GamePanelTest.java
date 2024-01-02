@@ -38,7 +38,17 @@ class GamePanelTest {
         assertTrue(gamePanel.getMoving());
     }
 
+    @Test
+    void setAnimation_RUNNING() {
+        gamePanel.setMoving(true);
+        gamePanel.setAnimation();
+        assertEquals(2, gamePanel.getPlayerAction());
+    }
 
-
-
+    @Test
+    void setAnimation_IDLE() {
+        gamePanel.setMoving(false);
+        gamePanel.setAnimation();
+        assertEquals(0, gamePanel.getPlayerAction());
+    }
 }
